@@ -41,6 +41,10 @@ pnpm dev
 pnpm build
 ```
 
+### Production routing
+
+The app uses HTML5 history. Configure the production host to rewrite deep links (such as `/octocat`) to `/index.html`.
+
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
