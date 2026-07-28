@@ -55,7 +55,9 @@ function show(state: ProfileLoadState) {
 function mountProfile() {
   return mount(ProfilePage, {
     props: { username: 'octocat' },
-    global: { stubs: { NuxtLink: { template: '<a><slot /></a>' } } },
+    global: {
+      stubs: { NuxtLink: { props: ['to'], template: '<a :href="to"><slot /></a>' } },
+    },
   })
 }
 
@@ -70,7 +72,7 @@ describe('ProfilePage', () => {
     const wrapper = await mountProfile()
 
     expect(wrapper.text()).toContain('The Octocat')
-    expect(wrapper.text()).toContain('hello-world')
+    expect(wrapper.get('a[href="/octocat/hello-world"]').text()).toBe('hello-world')
     expect(wrapper.text()).toContain('other')
 
     await wrapper.get('#repo-search').setValue('friendly')

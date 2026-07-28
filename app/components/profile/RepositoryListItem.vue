@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import type { Repository } from '@/github/useGitHubProfile'
 
-defineProps<{ repository: Repository }>()
+defineProps<{ repository: Repository; username: string }>()
 </script>
 
 <template>
   <li class="py-5">
-    <a
+    <NuxtLink
       class="link break-words text-lg font-semibold"
-      :href="repository.url"
-      rel="noopener noreferrer"
-      target="_blank"
-      >{{ repository.name }}</a
+      :to="`/${encodeURIComponent(username)}/${encodeURIComponent(repository.name)}`"
     >
+      {{ repository.name }}
+    </NuxtLink>
     <span
       v-if="repository.isFork"
       class="ml-2 text-xs font-medium uppercase tracking-wide text-slate-500"

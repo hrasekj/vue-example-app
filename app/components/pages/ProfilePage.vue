@@ -94,6 +94,7 @@ const filteredRepos = computed(() => {
             v-for="repository in filteredRepos"
             :key="repository.url"
             :repository="repository"
+            :username="profile.login"
           />
         </ul>
       </section>
