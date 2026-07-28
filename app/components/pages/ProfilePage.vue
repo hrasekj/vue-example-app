@@ -65,10 +65,10 @@ const filteredRepos = computed(() => {
       <template #actions><BaseButton @click="retry">Try again</BaseButton></template>
     </StatusMessage>
 
-    <div v-else-if="profile" class="grid gap-8 md:grid-cols-[16rem_minmax(0,1fr)]">
-      <ProfileSummary :profile="profile" />
+    <div v-else-if="profile" class="flex flex-col gap-8 md:flex-row">
+      <ProfileSummary class="md:w-64 md:shrink-0" :profile="profile" />
 
-      <section class="min-w-0" aria-labelledby="repositories-heading">
+      <section class="min-w-0 flex-1" aria-labelledby="repositories-heading">
         <div class="mb-6">
           <h2 id="repositories-heading" class="text-2xl font-bold">Repositories</h2>
           <label class="mt-4 block text-sm font-medium" for="repo-search">

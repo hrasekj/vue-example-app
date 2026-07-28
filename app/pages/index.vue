@@ -13,7 +13,7 @@ function openProfile() {
 </script>
 
 <template>
-  <main class="flex min-h-[70vh] items-center py-12">
+  <main class="flex flex-1 items-center py-12">
     <section class="w-full max-w-lg border-l-4 border-slate-900 pl-6">
       <h1 class="text-3xl font-bold tracking-tight">GitHub Profile Viewer</h1>
       <p class="mt-2 text-slate-600">
