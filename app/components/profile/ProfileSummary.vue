@@ -33,9 +33,7 @@ defineProps<{ profile: DeepReadonly<Profile> }>()
       <div v-if="profile.email" class="py-2">
         <dt class="font-semibold">Public email</dt>
         <dd>
-          <a class="break-all text-blue-700 underline" :href="`mailto:${profile.email}`">{{
-            profile.email
-          }}</a>
+          <a class="link break-all" :href="`mailto:${profile.email}`">{{ profile.email }}</a>
         </dd>
       </div>
       <div v-if="profile.company" class="py-2">
@@ -46,7 +44,7 @@ defineProps<{ profile: DeepReadonly<Profile> }>()
 
     <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
       <a
-        class="font-medium text-blue-700 underline"
+        class="link font-medium"
         :href="profile.profileUrl"
         rel="noopener noreferrer"
         target="_blank"
@@ -54,7 +52,7 @@ defineProps<{ profile: DeepReadonly<Profile> }>()
       >
       <a
         v-if="profile.websiteUrl"
-        class="font-medium text-blue-700 underline"
+        class="link font-medium"
         :href="profile.websiteUrl"
         rel="noopener noreferrer"
         target="_blank"

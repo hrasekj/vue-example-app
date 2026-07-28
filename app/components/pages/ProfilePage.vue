@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import BaseButton from '@/components/BaseButton.vue'
-import BaseInput from '@/components/BaseInput.vue'
-import ProfileSummary from '@/components/ProfileSummary.vue'
-import RepositoryListItem from '@/components/RepositoryListItem.vue'
-import StatusMessage from '@/components/StatusMessage.vue'
+import ProfileSummary from '@/components/profile/ProfileSummary.vue'
+import RepositoryListItem from '@/components/profile/RepositoryListItem.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import BaseInput from '@/components/ui/BaseInput.vue'
+import StatusMessage from '@/components/ui/StatusMessage.vue'
 import { useGitHubProfile } from '@/github/useGitHubProfile'
 
 const props = defineProps<{ username: string }>()
@@ -32,9 +32,7 @@ const filteredRepos = computed(() => {
 <template>
   <main>
     <nav class="mb-8" aria-label="Primary">
-      <NuxtLink class="text-sm font-medium text-blue-700 underline hover:no-underline" to="/">
-        Search another username
-      </NuxtLink>
+      <NuxtLink class="link text-sm font-medium" to="/"> Search another username </NuxtLink>
     </nav>
 
     <StatusMessage v-if="profileState.status === 'loading'">

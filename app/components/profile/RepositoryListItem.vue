@@ -7,7 +7,7 @@ defineProps<{ repository: Repository }>()
 <template>
   <li class="py-5">
     <a
-      class="break-words text-lg font-semibold text-blue-700 underline hover:no-underline"
+      class="link break-words text-lg font-semibold"
       :href="repository.url"
       rel="noopener noreferrer"
       target="_blank"

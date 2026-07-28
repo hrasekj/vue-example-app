@@ -5,3 +5,9 @@
     @apply min-h-screen bg-white text-slate-900 antialiased;
   }
 }
+
+@layer components {
+  .link {
+    @apply text-blue-700 underline hover:no-underline;
+  }
+}
