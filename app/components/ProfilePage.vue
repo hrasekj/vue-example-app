@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { RouterLink } from 'vue-router'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseInput from '@/components/BaseInput.vue'
 import ProfileSummary from '@/components/ProfileSummary.vue'
@@ -33,9 +32,9 @@ const filteredRepos = computed(() => {
 <template>
   <main>
     <nav class="mb-8" aria-label="Primary">
-      <RouterLink class="text-sm font-medium text-blue-700 underline hover:no-underline" to="/">
+      <NuxtLink class="text-sm font-medium text-blue-700 underline hover:no-underline" to="/">
         Search another username
-      </RouterLink>
+      </NuxtLink>
     </nav>
 
     <StatusMessage v-if="profileState.status === 'loading'">

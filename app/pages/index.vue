@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseInput from '@/components/BaseInput.vue'
 
@@ -9,7 +8,7 @@ const username = ref('')
 
 function openProfile() {
   const value = username.value.trim()
-  if (value) void router.push({ name: 'profile', params: { username: value } })
+  if (value) void router.push(`/${encodeURIComponent(value)}`)
 }
 </script>
 

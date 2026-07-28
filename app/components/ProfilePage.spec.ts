@@ -1,9 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { createMemoryHistory, createRouter } from 'vue-router'
 import { readonly, ref } from 'vue'
 import { useGitHubProfile, type Profile, type ProfileLoadState } from '@/github/useGitHubProfile'
-import ProfileView from '../ProfileView.vue'
+import ProfilePage from './ProfilePage.vue'
 
 vi.mock('@/github/useGitHubProfile', () => ({
   useGitHubProfile: vi.fn<typeof useGitHubProfile>(),
@@ -53,14 +52,11 @@ function show(state: ProfileLoadState) {
   })
 }
 
-async function mountProfile() {
-  const router = createRouter({
-    history: createMemoryHistory(),
-    routes: [{ path: '/', component: { template: '<div />' } }],
+function mountProfile() {
+  return mount(ProfilePage, {
+    props: { username: 'octocat' },
+    global: { stubs: { NuxtLink: { template: '<a><slot /></a>' } } },
   })
-  await router.push('/')
-  await router.isReady()
-  return mount(ProfileView, { props: { username: 'octocat' }, global: { plugins: [router] } })
 }
 
 beforeEach(() => {
@@ -68,7 +64,7 @@ beforeEach(() => {
   useGitHubProfileMock.mockReset()
 })
 
-describe('ProfileView', () => {
+describe('ProfilePage', () => {
   it('renders a profile and filters repositories by name or description', async () => {
     show({ status: 'ready', profile })
     const wrapper = await mountProfile()
